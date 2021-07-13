@@ -38,6 +38,7 @@
         <Button @click="form.copybuffer = toDecimal(form.copybuffer)">To decimal</Button>
         <Button @click="form.copybuffer = toHex(form.copybuffer)">To hex</Button>
         <Button @click="form.copybuffer = toUTF8(form.copybuffer)">To UTF8</Button>
+        <Button @click="form.copybuffer = solidityKeccak256(form.copybuffer)">Keccak256</Button>
         <br>
         <select v-model="template">
             <option v-for="template in templates" v-bind:value="template">
@@ -103,15 +104,29 @@
      methods: {
          hexZeroPad (s: string): string {
              if (!s.startsWith("0x")) { return s }
-             return ethers.utils.hexZeroPad(s, 32)
+             try {
+                 return ethers.utils.hexZeroPad(s, 32)
+             } catch(e) {
+                 console.log(e)
+                 return s
+             }
          },
          toAddress (s: string): string {
              if (!s.startsWith("0x")) { return s }
-             return ethers.utils.hexZeroPad(ethers.utils.hexStripZeros(s), 20)
+             try {
+                 return ethers.utils.hexZeroPad(ethers.utils.hexStripZeros(s), 20)
+             } catch(e) {
+                 console.log(e)
+                 return s
+             }
          },
          hexStripZeros (s: string): string {
              if (!s.startsWith("0x")) { return s }
-             return ethers.utils.hexStripZeros(s)
+             try {
+                 return ethers.utils.hexStripZeros(s)
+             } catch(e) {
+                 return s
+             }
          },
          toHex (s: string): string {
              try {
@@ -142,6 +157,13 @@
                  return s
              }
 
+         },
+         solidityKeccak256 (s: string): string {
+             try {
+                 return ethers.utils.solidityKeccak256(["string"],[s])
+             } catch {
+                 return s
+             }
          },
          async updateBaseURL () {
              this.blocks = [
