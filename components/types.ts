@@ -32,4 +32,4 @@ export interface Event {
      transactionHash: string
      transactionIndex: BigNumber
  }
-export interface Option {name: string; number: string}
+export interface Option {name: string; value: string}

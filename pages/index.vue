@@ -120,12 +120,12 @@
          },
          async updateBaseURL () {
              this.blocks = [
-                 {name: "latest", number: "latest"},
-                 {name: "earliest", number: "earliest"},
-                 {name: "pending", number: "pending"},
-                 {name: "1 day ago", number: await this.ago(60 * 60 * 24)},
-                 {name: "1 week ago", number: await this.ago(60 * 60 * 24 * 7)},
-                 {name: "2 weeks ago", number: await this.ago(60 * 60 * 24 * 14)}
+                 {name: "latest", value: "latest"},
+                 {name: "earliest", value: "earliest"},
+                 {name: "pending", value: "pending"},
+                 {name: "1 day ago", value: await this.ago(60 * 60 * 24)},
+                 {name: "1 week ago", value: await this.ago(60 * 60 * 24 * 7)},
+                 {name: "2 weeks ago", value: await this.ago(60 * 60 * 24 * 14)}
              ]
          },
          async ago (duration: number): Promise<string> {
