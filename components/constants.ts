@@ -35,7 +35,7 @@ const defaultFromBSC =  "7000000" // 2021-04-29
 const defaultFromETH = "12295621" // 2021-04-23
 
  const templateProcessBalance = {
-     name: "default",
+     name: "process balance ftm: spirit-GTON/fUSDT",
      form: {
          baseURL: ftmBaseURL,
          fromBlock: defaultFromFTM,
@@ -46,6 +46,63 @@ const defaultFromETH = "12295621" // 2021-04-23
          topic1: "",
          isTopic2: true,
          topic2: "0x000000000000000000000000f3245FE3A1EAbB840725B9888347Ce0F01Ded0B4",
+         isTopic3: false,
+         topic3: "",
+         apiKey: "",
+         copybuffer: ""
+     }
+ }
+
+ const templateFTMswapout = {
+     name: "unwrap anyswap asset",
+     form: {
+         baseURL: ftmBaseURL,
+         fromBlock: defaultFromFTM,
+         toBlock: "latest",
+         address: gtonFTM,
+         topic0: topicSwapOut,
+         isTopic1: false,
+         topic1: "",
+         isTopic2: false,
+         topic2: "",
+         isTopic3: false,
+         topic3: "",
+         apiKey: "",
+         copybuffer: ""
+     }
+ }
+
+ const templateFTMswapin = {
+     name: "wrap anyswap asset",
+     form: {
+         baseURL: ftmBaseURL,
+         fromBlock: defaultFromFTM,
+         toBlock: "latest",
+         address: gtonFTM,
+         topic0: topicSwapIn,
+         isTopic1: false,
+         topic1: "",
+         isTopic2: false,
+         topic2: "",
+         isTopic3: false,
+         topic3: "",
+         apiKey: "",
+         copybuffer: ""
+     }
+ }
+
+ const templateETHapprove = {
+     name: "approve eth",
+     form: {
+         baseURL: ethBaseURL,
+         fromBlock: defaultFromETH,
+         toBlock: "latest",
+         address: gtonETH,
+         topic0: topicApprove,
+         isTopic1: false,
+         topic1: "",
+         isTopic2: false,
+         topic2: "",
          isTopic3: false,
          topic3: "",
          apiKey: "",
@@ -198,8 +255,11 @@ export const topic0s = [
 ]
 
 export const templates = [
-    templateProcessBalance,
     templateETHtransfer,
+    templateETHapprove,
+    templateFTMswapin,
+    templateFTMswapout,
+    templateProcessBalance,
     templateETHsushi,
     templatePLGquick,
     templateFTMspooky,
