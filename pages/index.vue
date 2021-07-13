@@ -37,6 +37,7 @@
         <Button @click="form.copybuffer = toAddress(form.copybuffer)">To address</Button>
         <Button @click="form.copybuffer = toDecimal(form.copybuffer)">To decimal</Button>
         <Button @click="form.copybuffer = toHex(form.copybuffer)">To hex</Button>
+        <Button @click="form.copybuffer = toUTF8(form.copybuffer)">To UTF8</Button>
         <br>
         <select v-model="template">
             <option v-for="template in templates" v-bind:value="template">
@@ -113,10 +114,34 @@
              return ethers.utils.hexStripZeros(s)
          },
          toHex (s: string): string {
-             return BigNumber.from(s).toHexString()
+             try {
+                 return BigNumber.from(s).toHexString()
+             } catch(e) {
+                 console.log("not a number", e)
+                 try {
+                     return ethers.utils.hexlify(ethers.utils.toUtf8Bytes(s))
+                 } catch (e) {
+                     console.log("not a string", e)
+                     return s
+                 }
+             }
          },
          toDecimal (s: string): string {
-             return BigNumber.from(s).toString()
+             try {
+                 return BigNumber.from(s).toString()
+             } catch(e) {
+                 console.log
+                 return s
+             }
+         },
+         toUTF8 (s: string): string {
+             try {
+                 return ethers.utils.toUtf8String(s)
+             } catch(e) {
+                 console.log(e)
+                 return s
+             }
+
          },
          async updateBaseURL () {
              this.blocks = [
