@@ -25,6 +25,9 @@
  const topicV2PairCreated = "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
  const topicProcessBalances = "0xdb82536d6a90c757b9cecfe267e7dd17bbb96cb1acd169e21771d6b816ab0bc4"
  const topicTransfer = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+ const topicApprove = "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+ const topicSwapIn = "0x05d0634fe981be85c22e2942a880821b70095d84e152c3ea3c17a4e4250d9d61"
+ const topicSwapOut = "0x6b616089d04950dc06c45c6dd787d657980543f89651aec47924752c7d16c888"
 
 const defaultFromFTM =  "4332587" //
 const defaultFromPLG = "12295621" //
@@ -188,7 +191,10 @@ export const addresses = [
 export const topic0s = [
     {name: "V2 pair created", value: topicV2PairCreated},
     {name: "adder V2 process balances", value: topicProcessBalances},
-    {name: "ERC20 transfer", value: topicTransfer}
+    {name: "ERC20 transfer", value: topicTransfer},
+    {name: "ERC20 approve", value: topicApprove},
+    {name: "Anyswap SwapIn", value: topicSwapIn},
+    {name: "Anyswap SwapOut", value: topicSwapOut}
 ]
 
 export const templates = [
