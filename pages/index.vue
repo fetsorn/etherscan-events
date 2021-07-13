@@ -137,7 +137,6 @@
              try {
                  const resp = await axios.get(url)
                  if (status == "0") { console.log(resp.data.message); return "latest" }
-                 console.log(resp.data)
                  return resp.data.result
              } catch(e) {
                  console.log(e)
