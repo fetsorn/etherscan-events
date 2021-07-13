@@ -9,17 +9,17 @@
         <input style="width: 200px" v-model="form.fromBlock" placeholder="from" list="blocks">
         <input style="width: 200px" v-model="form.toBlock" placeholder="to" list="blocks">
         <datalist id="blocks">
-            <option v-for="block in blocks" v-bind:value="block.number">{{ block.name }}</option>
+            <option v-for="block in blocks" v-bind:value="block.value">{{ block.name }}</option>
         </datalist>
         <br>
         <input style="width: 600px" v-model="form.address" placeholder="address" list="addresses">
         <datalist id="addresses">
-            <option v-for="addr in addresses" v-bind:value="addr.address">{{ addr.name }}</option>
+            <option v-for="addr in addresses" v-bind:value="addr.value">{{ addr.name }}</option>
         </datalist>
         <br>
         <input style="width: 600px" v-model="form.topic0" placeholder="topic0" list="topic0s">
         <datalist id="topic0s">
-            <option v-for="topic0 in topic0s" v-bind:value="topic0.topic">{{ topic0.name }}</option>
+            <option v-for="topic0 in topic0s" v-bind:value="topic0.value">{{ topic0.name }}</option>
         </datalist>
         <br>
         <input style="width: 600px" v-model="form.topic1" placeholder="topic1">
@@ -136,7 +136,7 @@
              let url = baseURL + "/api?module=block&action=getblocknobytime" + "&timestamp=" + timestamp + "&closest=after" + "&apikey=" + apiKey
              try {
                  const resp = await axios.get(url)
-                 if (status == "0") { console.log(resp.data.message); return "latest" }
+                 if (resp.data.status == "0") { console.log(resp.data.message); return "latest" }
                  return resp.data.result
              } catch(e) {
                  console.log(e)
