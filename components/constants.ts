@@ -1,38 +1,45 @@
- import { ethers } from 'ethers'
+import { ethers } from 'ethers'
 
- const ethBaseURL = "https://api.etherscan.io"
- const ftmBaseURL = "https://api.ftmscan.com"
- const bscBaseURL = "https://api.bscscan.com"
- const plgBaseURL = "https://api.polygonscan.com"
+export const ethRPC = "https://mainnet.infura.io/v3/"
+export const ftmRPC = "https://rpc.ftm.tools"
+export const bscRPC = "https://bsc-dataseed1.binance.org"
+// export const plgRPC = "https://rpc-mainnet.matic.network"
+export const plgRPC = "https://rpc-mainnet.maticvigil.com"
 
- const gtonETH = "0x01e0E2e61f554eCAaeC0cC933E739Ad90f24a86d"
- const gtonBSC = "0x64D5BaF5ac030e2b7c435aDD967f787ae94D0205"
- const gtonPLG = "0xf480f38c366daac4305dc484b2ad7a496ff00cea"
- const gtonFTM = "0xC1Be9a4D5D45BeeACAE296a7BD5fADBfc14602C4"
- const factoryETHsushi = "0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac"
- const factoryPLGsushi = "0xc35dadb65012ec5796536bd9864ed8773abc74c4"
- const factoryPLGquick = "0x5757371414417b8c6caad45baef941abc7d3ab32"
- const factoryFTMspooky = "0x152eE697f2E276fA89E96742e9bB9aB1F2E61bE3"
- const factoryFTMspirit = "0xEF45d134b73241eDa7703fa787148D9C9F4950b0"
- const factoryBSCpancake = "0xca143ce32fe78f1f7019d7d551a6402fc5350c73"
- const balanceKeeperV1 = "0x08D751281654cF6E6951E303eC3c55f92a4B22bd"
- const balanceKeeperV2 = "0x4AB096F49F2Af3cfcf2D851094FA5936f18aed90"
- const voter = "0x23836bcd86D6349FB5f353d80336FaCd74c19a66"
- const balanceAdder = "0x8d712f350A55D65427EfcE56Ec6a36fef28e8Ac9"
- const lpKeeper = "0xA0447eE66E44BF567FF9287107B0c3D2F88efD93"
- const parser = "0x7fCCE1303F7e1fc14780C87F6D67346EC44a4027"
+export const ethBaseURL = "https://api.etherscan.io"
+export const ftmBaseURL = "https://api.ftmscan.com"
+export const bscBaseURL = "https://api.bscscan.com"
+export const plgBaseURL = "https://api.polygonscan.com"
 
- const topicV2PairCreated = "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
- const topicProcessBalances = "0xdb82536d6a90c757b9cecfe267e7dd17bbb96cb1acd169e21771d6b816ab0bc4"
- const topicTransfer = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
- const topicApprove = "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
- const topicSwapIn = "0x05d0634fe981be85c22e2942a880821b70095d84e152c3ea3c17a4e4250d9d61"
- const topicSwapOut = "0x6b616089d04950dc06c45c6dd787d657980543f89651aec47924752c7d16c888"
 
-const defaultFromFTM =  "4332587" //
-const defaultFromPLG = "12295621" //
-const defaultFromBSC =  "7000000" // 2021-04-29
-const defaultFromETH = "12295621" // 2021-04-23
+export const defaultFromFTM =  "4332587" //
+export const defaultFromPLG = "12295621" //
+export const defaultFromBSC =  "7000000" // 2021-04-29
+export const defaultFromETH = "12295621" // 2021-04-23
+
+export const gtonETH = "0x01e0E2e61f554eCAaeC0cC933E739Ad90f24a86d"
+export const gtonBSC = "0x64D5BaF5ac030e2b7c435aDD967f787ae94D0205"
+export const gtonPLG = "0xf480f38c366daac4305dc484b2ad7a496ff00cea"
+export const gtonFTM = "0xC1Be9a4D5D45BeeACAE296a7BD5fADBfc14602C4"
+export const factoryETHsushi = "0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac"
+export const factoryPLGsushi = "0xc35dadb65012ec5796536bd9864ed8773abc74c4"
+export const factoryPLGquick = "0x5757371414417b8c6caad45baef941abc7d3ab32"
+export const factoryFTMspooky = "0x152eE697f2E276fA89E96742e9bB9aB1F2E61bE3"
+export const factoryFTMspirit = "0xEF45d134b73241eDa7703fa787148D9C9F4950b0"
+export const factoryBSCpancake = "0xca143ce32fe78f1f7019d7d551a6402fc5350c73"
+export const balanceKeeperV1 = "0x08D751281654cF6E6951E303eC3c55f92a4B22bd"
+export const balanceKeeperV2 = "0x4AB096F49F2Af3cfcf2D851094FA5936f18aed90"
+export const voter = "0x23836bcd86D6349FB5f353d80336FaCd74c19a66"
+export const balanceAdder = "0x8d712f350A55D65427EfcE56Ec6a36fef28e8Ac9"
+export const lpKeeper = "0xA0447eE66E44BF567FF9287107B0c3D2F88efD93"
+export const parser = "0x7fCCE1303F7e1fc14780C87F6D67346EC44a4027"
+
+export const topicV2PairCreated = "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
+export const topicProcessBalances = "0xdb82536d6a90c757b9cecfe267e7dd17bbb96cb1acd169e21771d6b816ab0bc4"
+export const topicTransfer = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+export const topicApprove = "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+export const topicSwapIn = "0x05d0634fe981be85c22e2942a880821b70095d84e152c3ea3c17a4e4250d9d61"
+export const topicSwapOut = "0x6b616089d04950dc06c45c6dd787d657980543f89651aec47924752c7d16c888"
 
  const templateProcessBalance = {
      name: "process balance ftm: spirit-GTON/fUSDT",

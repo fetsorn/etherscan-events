@@ -33,3 +33,23 @@ export interface Event {
      transactionIndex: BigNumber
  }
 export interface Option {name: string; value: string}
+
+export interface Token {
+     symbol: string
+     name: string
+     address: string
+     reserve: string
+}
+
+export interface Pool {
+     chain: string
+     dex: string
+     factory: string
+     address: string
+     createdBlockNumber: BigNumber
+     createdTimestamp: BigNumber
+     createdDate: Date
+     createdTransactionHash: string
+     token0: Token
+     token1: Token
+ }
