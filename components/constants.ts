@@ -136,6 +136,44 @@ export const topicSwapOut = "0x6b616089d04950dc06c45c6dd787d657980543f89651aec47
      }
  }
 
+ const templateETHRenBurn = {
+     name: "Ren Burn",
+     form: {
+         baseURL: ethBaseURL,
+         fromBlock: defaultFromETH,
+         toBlock: "latest",
+         address: gtonETH,
+         topic0: topicTransfer,
+         isTopic1: false,
+         topic1: "",
+         isTopic2: true,
+         topic2: "0x0000000000000000000000000000000000000000000000000000000000000000",
+         isTopic3: false,
+         topic3: "",
+         apiKey: "",
+         copybuffer: ""
+     }
+ }
+
+ const templateETHRenMint = {
+     name: "Ren Mint",
+     form: {
+         baseURL: ethBaseURL,
+         fromBlock: defaultFromETH,
+         toBlock: "latest",
+         address: gtonETH,
+         topic0: topicTransfer,
+         isTopic1: true,
+         topic1: "0x0000000000000000000000000000000000000000000000000000000000000000",
+         isTopic2: false,
+         topic2: "",
+         isTopic3: false,
+         topic3: "",
+         apiKey: "",
+         copybuffer: ""
+     }
+ }
+
  const templateETHsushi = {
      name: "sushi eth",
      form: {
