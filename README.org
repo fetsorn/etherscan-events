@@ -1,9 +1,6 @@
-#+TITLE: Readme
+#+TITLE: Etherscan-events
 
-* spec
- - [X] search any combination of topic, address, timestamp, chain
- - [X] search more than 1000 events
- - [X] calculate blocks a duration ago
- - [X] hardcode api
- - [X] hardcode addresses
- - [X] hardcode event types
+https://etherscan-events.netlify.app/pools/ - search dex pools for tokens
+
+https://etherscan-events.netlify.app - search events on addresses, some example are given. For instance, search for all Anyswap swapins for a token.  
+
